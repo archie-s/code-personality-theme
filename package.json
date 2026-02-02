@@ -9,77 +9,79 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "themes": [
-  {
-    "label": "Personality: Calm",
-    "uiTheme": "vs-dark",
-    "path": "./themes/calm-color-theme.json"
-  },
-  {
-    "label": "Personality: Focus",
-    "uiTheme": "vs-dark",
-    "path": "./themes/focus-color-theme.json"
-  },
-  {
-    "label": "Personality: Panic",
-    "uiTheme": "vs-dark",
-    "path": "./themes/panic-color-theme.json"
-  }
-    ],
-    "configuration": {
-  "title": "Code Personality Themes",
-  "properties": {
-    "codePersonalityThemes.enabled": {
-      "type": "boolean",
-      "default": true,
-      "description": "Enable automatic theme switching."
-    },
-    "codePersonalityThemes.calmTheme": {
-      "type": "string",
-      "default": "Personality: Calm",
-      "description": "Theme name used for Calm mode."
-    },
-    "codePersonalityThemes.focusTheme": {
-      "type": "string",
-      "default": "Personality: Focus",
-      "description": "Theme name used for Focus mode."
-    },
-    "codePersonalityThemes.panicTheme": {
-      "type": "string",
-      "default": "Personality: Panic",
-      "description": "Theme name used for Panic mode."
-    },
-    "codePersonalityThemes.panicErrorThreshold": {
-      "type": "number",
-      "default": 5,
-      "description": "If total diagnostics >= this number, switch to Panic."
-    },
-    "codePersonalityThemes.focusTypingBurstThreshold": {
-      "type": "number",
-      "default": 12,
-      "description": "If edits in the last 10 seconds >= this number, switch to Focus."
-    },
-    "codePersonalityThemes.idleSecondsForCalm": {
-      "type": "number",
-      "default": 25,
-      "description": "If idle for this many seconds, switch to Calm."
-    },
-    "codePersonalityThemes.cooldownSeconds": {
-      "type": "number",
-      "default": 15,
-      "description": "Minimum seconds between theme switches."
-    }
-  }
-},
     "commands": [
       {
-        "command": "code-personality-themes.helloWorld",
-        "title": "Hello World"
+        "command": "codePersonalityThemes.ping",
+        "title": "Code Personality Themes: Ping"
       }
-    ]
+    ],
+    "themes": [
+      {
+        "label": "Personality: Calm",
+        "uiTheme": "vs-dark",
+        "path": "./themes/calm-color-theme.json"
+      },
+      {
+        "label": "Personality: Focus",
+        "uiTheme": "vs-dark",
+        "path": "./themes/focus-color-theme.json"
+      },
+      {
+        "label": "Personality: Panic",
+        "uiTheme": "vs-dark",
+        "path": "./themes/panic-color-theme.json"
+      }
+    ],
+    "configuration": {
+      "title": "Code Personality Themes",
+      "properties": {
+        "codePersonalityThemes.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable automatic theme switching."
+        },
+        "codePersonalityThemes.calmTheme": {
+          "type": "string",
+          "default": "Personality: Calm",
+          "description": "Theme name used for Calm mode."
+        },
+        "codePersonalityThemes.focusTheme": {
+          "type": "string",
+          "default": "Personality: Focus",
+          "description": "Theme name used for Focus mode."
+        },
+        "codePersonalityThemes.panicTheme": {
+          "type": "string",
+          "default": "Personality: Panic",
+          "description": "Theme name used for Panic mode."
+        },
+        "codePersonalityThemes.panicErrorThreshold": {
+          "type": "number",
+          "default": 5,
+          "description": "If total diagnostics >= this number, switch to Panic."
+        },
+        "codePersonalityThemes.focusTypingBurstThreshold": {
+          "type": "number",
+          "default": 12,
+          "description": "If edits in the last 10 seconds >= this number, switch to Focus."
+        },
+        "codePersonalityThemes.idleSecondsForCalm": {
+          "type": "number",
+          "default": 20,
+          "description": "If idle for this many seconds, switch to Calm."
+        },
+        "codePersonalityThemes.cooldownSeconds": {
+          "type": "number",
+          "default": 15,
+          "description": "Minimum seconds between theme switches."
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

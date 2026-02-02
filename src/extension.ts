@@ -14,11 +14,17 @@ export function activate(context: vscode.ExtensionContext) {
   );
 
   context.subscriptions.push(
-    vscode.languages.onDidChangeDiagnostics(() => {
+    vscode.languages.onDidChangeDiagnostics(async () => {
       if (!getEnabled()) {
         return;
       }
       state.onDiagnosticsChanged();
+      
+      const mode = state.computeMode();
+      const isPanicRecovery = state.isPanicRecovery(mode);
+      if (isPanicRecovery) {
+        await applyMode(mode, state, true);
+      }
     })
   );
 
@@ -28,7 +34,8 @@ export function activate(context: vscode.ExtensionContext) {
       return;
     }
     const mode = state.computeMode();
-    await applyMode(mode, state);
+    const isPanicRecovery = state.isPanicRecovery(mode);
+    await applyMode(mode, state, isPanicRecovery);
   }, 1000);
 
   context.subscriptions.push({ dispose: () => clearInterval(interval) });
@@ -87,6 +94,10 @@ class PersonalityState {
     return "focus";
   }
 
+  isPanicRecovery(newMode: Mode): boolean {
+    return this.lastMode === "panic" && newMode !== "panic";
+  }
+
   canApply(mode: Mode, force = false): boolean {
     if (force) {
       return true;
@@ -95,12 +106,14 @@ class PersonalityState {
     const cfg = getConfig();
     const now = Date.now();
 
-    const cooldownMs = cfg.cooldownSeconds * 1000;
-    if (now - this.lastAppliedAt < cooldownMs) {
+    if (this.lastMode === mode) {
       return false;
     }
-
-    if (this.lastMode === mode) {
+    if (this.lastMode === "panic" && mode === "calm") {
+      return true;
+    }
+    const cooldownMs = cfg.cooldownSeconds * 1000;
+    if (now - this.lastAppliedAt < cooldownMs) {
       return false;
     }
 
@@ -130,7 +143,7 @@ function getConfig() {
       "focusTypingBurstThreshold",
       12
     ),
-    idleSecondsForCalm: c.get<number>("idleSecondsForCalm", 25),
+    idleSecondsForCalm: c.get<number>("idleSecondsForCalm", 20),
     cooldownSeconds: c.get<number>("cooldownSeconds", 15),
   };
 }
