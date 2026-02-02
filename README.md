@@ -6,9 +6,9 @@ A VS Code extension that automatically switches your editor theme based on your 
 
 Code Personality Themes intelligently switches between three distinct themes based on your coding behavior:
 
-- ** Calm Mode**: Activated when you're idle for 20+ seconds - a soothing theme for when you're thinking or taking a break
-- ** Focus Mode**: Activated during active coding sessions - optimized for concentration and productivity
-- ** Panic Mode**: Activated when you have 5+ errors in your code - helps you identify that you need to slow down and fix issues
+- Calm Mode: Activated when you're idle for 20+ seconds - a soothing theme for when you're thinking or taking a break
+- Focus Mode: Activated during active coding sessions - optimized for concentration and productivity
+- Panic Mode: Activated when you have 5+ errors in your code - helps you identify that you need to slow down and fix issues
 
 ### How It Works
 
@@ -60,18 +60,6 @@ You can use your own favorite themes by changing the theme settings. Simply upda
 ## Known Issues
 
 None at this time. Please report any issues on the GitHub repository.
-
-## Release Notes
-
-### 0.0.1
-
-Initial release of Code Personality Themes:
-- Automatic theme switching based on coding activity
-- Three modes: Calm, Focus, and Panic
-- Immediate panic recovery when errors are fixed
-- Configurable thresholds and themes
-
----
 
 ## Contributing
 
