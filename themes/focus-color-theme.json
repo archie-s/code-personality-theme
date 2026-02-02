@@ -1,0 +1,15 @@
+{
+  "name": "Personality: Focus",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#0B1020",
+    "statusBar.background": "#1A2450",
+    "statusBar.foreground": "#E6EDF3",
+    "activityBar.background": "#101A3A",
+    "titleBar.activeBackground": "#101A3A",
+    "sideBar.background": "#0E1632",
+    "editorLineNumber.foreground": "#3A4B7A",
+    "editorCursor.foreground": "#7AA2F7"
+  },
+  "tokenColors": []
+}

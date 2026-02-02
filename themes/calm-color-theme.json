@@ -1,0 +1,15 @@
+{
+    "name": "Personality: Calm",
+    "type": "dark",
+    "colors": {
+        "editor.background": "#0F111A",
+        "statusBar.background": "#1B1F2A",
+        "statusBar.foreground": "#C9D1D9",
+        "activityBar.background": "#141824",
+        "titleBar.activeBackground": "#141824",
+        "sideBar.background": "#111522",
+        "editorLineNumber.foreground": "#3A4155",
+        "editorCursor.foreground": "#A6E3A1"
+    },
+    "tokenColors": []
+}

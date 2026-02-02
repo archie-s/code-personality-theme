@@ -1,0 +1,17 @@
+{
+  "name": "Personality: Panic",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#1A0B0B",
+    "statusBar.background": "#7A0000",
+    "statusBar.foreground": "#FFFFFF",
+    "activityBar.background": "#2A0B0B",
+    "titleBar.activeBackground": "#2A0B0B",
+    "sideBar.background": "#1F0A0A",
+    "editorLineNumber.foreground": "#8B3A3A",
+    "editorCursor.foreground": "#FF4D4D",
+    "editorError.foreground": "#FF4D4D",
+    "editorWarning.foreground": "#FFB84D"
+  },
+  "tokenColors": []
+}
